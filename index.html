@@ -145,19 +145,19 @@
 
         .armor-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 12px;
-            padding: 16px;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 10px;
+            padding: 12px;
             background: rgba(31, 41, 55, 0.5);
             border-radius: 0 8px 8px 8px;
-            min-height: 150px;
+            min-height: 120px;
         }
 
         .armor-card {
             background: #1f2937;
             border: 2px solid #4b5563;
             border-radius: 8px;
-            padding: 12px;
+            padding: 10px;
             cursor: pointer;
             transition: all 0.3s ease;
         }
@@ -185,20 +185,23 @@
         }
 
         .armor-stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 4px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
             font-size: 0.75rem;
             color: #9ca3af;
+            margin-top: 4px;
         }
 
         .armor-stat {
             display: flex;
-            justify-content: space-between;
+            align-items: center;
+            gap: 4px;
         }
 
         .armor-stat-label {
             color: #6b7280;
+            font-weight: 400;
         }
 
         .armor-stat-value {
@@ -755,41 +758,42 @@
         // Equipment database 
         const equipment = [
             // Common Weapons
-            { name: "Shortblade", bulk: 1, category: "common-weapons", description: "1d6 damage, finesse" },
-            { name: "Longblade", bulk: 2, category: "common-weapons", description: "1d8 damage" },
-            { name: "Glaive", bulk: 2, category: "common-weapons", description: "1d10 damage, reach" },
-            { name: "Bow", bulk: 2, category: "common-weapons", description: "1d6 damage, ranged" },
-            { name: "Crossbow", bulk: 2, category: "common-weapons", description: "1d8 damage, ranged" },
-            { name: "Sling", bulk: 1, category: "common-weapons", description: "1d4 damage, ranged" },
-            { name: "Spear", bulk: 2, category: "common-weapons", description: "1d6 damage, thrown" },
-            { name: "Axe", bulk: 2, category: "common-weapons", description: "1d8 damage" },
-            { name: "Club", bulk: 2, category: "common-weapons", description: "1d6 damage" },
-            { name: "Dagger", bulk: 1, category: "common-weapons", description: "1d4 damage, finesse, thrown" },
-            
+            { name: "Greatblade", bulk: 2, category: "common-weapons", description: "Weapon that deals 1d8 slashing damage" },            
+            { name: "Shortblade", bulk: 1, category: "common-weapons", description: "Finesse weapon that deals 1d6 piercing damage" },
+            { name: "Blade", bulk: 1, category: "common-weapons", description: "Finesse weapon that deals 1d8 piercing and slashing damage" },
+            { name: "Bow", bulk: 2, category: "common-weapons", description: "Range weapon(50m) that deals 1d6 piercing damage" },
+            { name: "Crossbow", bulk: 1, category: "common-weapons", description: "Range weapon(40m) that deals 1d8 piercing damage" },
+            { name: "Polearm", bulk: 2, category: "common-weapons", description: "Long range melee weapon(2m) that deals 1d8 piercing damage" },
+            { name: "Sling", bulk: 1, category: "common-weapons", description: "Range finesse weapon(30m) that deals 1d4 bludgeoning damage" },
+            { name: "Spear", bulk: 1, category: "common-weapons", description: "Melee weapon that deals 1d6 piercing damage(Can be thrown)" },
+            { name: "Thrown Blade(x5)", bulk: 1, category: "common-weapons", description: "Thrown weapon(5m) that deals 1d6 piercing damage" },
+            { name: "Axe", bulk: 1, category: "common-weapons", description: "Weapon that deals 1d8 damage" },
+            { name: "Club", bulk: 1, category: "common-weapons", description: "Weapon that deals 1d4 bludgeoning damage" },
+            { name: "Whip", bulk: 1, category: "common-weapons", description: "Finesse weapon that deals 1d4 slashing damage(Can trip or disarm target)" },
+            { name: "Greathammer", bulk: 2, category: "common-weapons", description: "Weapon and deals 1d6 bludgeoning damage(Target might be prone)" },
+
             // Tau'ri Weapons
             { name: "FN P90", bulk: 2, category: "tauri-weapons", description: "Standard issue longarm, 30 round capacity" },
             { name: "Beretta M9", bulk: 1, category: "tauri-weapons", description: "Standard sidearm, 15 round capacity" },
             { name: "Mossberg 500", bulk: 2, category: "tauri-weapons", description: "Pump-action shotgun, scatter weapon" },
-            { name: "Combat Knife", bulk: 1, category: "tauri-weapons", description: "Close quarters weapon, finesse" },
-            { name: "Grenade Launcher", bulk: 2, category: "tauri-weapons", description: "Launches grenades at extended range" },
-            { name: "Chain Gun", bulk: 4, category: "tauri-weapons", description: "Heavy automatic weapon, requires mount" },
-            { name: "RPG", bulk: 3, category: "tauri-weapons", description: "Rocket-propelled grenade, blast 5m" },
-            { name: "Tranquilizer Rifle", bulk: 2, category: "tauri-weapons", description: "Non-lethal sedative darts" },
+            { name: "Combat Knife", bulk: 1, category: "tauri-weapons", description: "Melee finesse weapon that deals 1d6 piercing damage " },
+            { name: "Grenade Launcher", bulk: 2, category: "tauri-weapons", description: "Launches grenades at extended range. Ask your GM first" },
+            { name: "Chain Gun", bulk: 4, category: "tauri-weapons", description: "Heavy automatic weapon, 100 rounds of capacity. Ask your GM first" },
+            { name: "RPG", bulk: 3, category: "tauri-weapons", description: "Rocket-propelled grenade. Ask your GM first" },
+            { name: "Tranquilizer Rifle", bulk: 2, category: "tauri-weapons", description: "Non-lethal sedative weapon" },
             { name: "Spare Magazines", bulk: 1, category: "tauri-weapons", description: "2 magazines for any weapon" },
             
             // Explosives
-            { name: "C4 Explosive Clay", bulk: 1, category: "explosives", description: "3 uses, remote detonated" },
+            { name: "C4 Explosive Clay(3x)", bulk: 1, category: "explosives", description: "Explosive clay that deals 1d10 damage(1m). Max 20 stacks" },
             { name: "C4 Detonator", bulk: 0, category: "explosives", description: "Radio receiver for C4" },
-            { name: "Claymore Mine", bulk: 1, category: "explosives", description: "Directional antipersonnel mine" },
-            { name: "Fragmentation Grenade", bulk: 1, category: "explosives", description: "3 grenades, blast 3m" },
-            { name: "Smoke Grenade", bulk: 1, category: "explosives", description: "3 grenades, obscures vision" },
-            { name: "Flash-Bang Grenade", bulk: 1, category: "explosives", description: "3 grenades, blinds and deafens" },
+            { name: "Claymore Mine", bulk: 1, category: "explosives", description: "Directional antipersonnel mine that deals 8d6 damage" },
+            { name: "Fragmentation Grenade(3x)", bulk: 1, category: "explosives", description: "Standard grenade 3mx3m that deals 6d6 force damage" },
+            { name: "Smoke Grenade(3x)", bulk: 1, category: "explosives", description: "Fills 5m x 5m area with smoke" },
+            { name: "Flash-Bang Grenade(3x)", bulk: 1, category: "explosives", description: "3 grenades, blinds and deafens" },
             
             // Medical
             { name: "Med Kit", bulk: 2, category: "medical", description: "Full medical supplies for field treatment" },
-            { name: "Surgical Kit", bulk: 2, category: "medical", description: "Advanced medical procedures" },
             { name: "Emergency Viral Response", bulk: 0, category: "medical", description: "Auto-injector for toxins" },
-            { name: "Pharmaceutical Supplies", bulk: 1, category: "medical", description: "Various medications and drugs" },
             { name: "Outbreak Kit", bulk: 1, category: "medical", description: "Disease containment supplies" },
             
             // Tools & Kits
@@ -797,41 +801,44 @@
             { name: "Research Kit", bulk: 1, category: "tools", description: "Scientific analysis equipment" },
             { name: "Climbing Kit", bulk: 1, category: "tools", description: "Ropes, hooks, and carabiners" },
             { name: "Camo Kit", bulk: 1, category: "tools", description: "Camouflage for stealth operations" },
-            { name: "Duct Tape", bulk: 1, category: "tools", description: "100m roll, infinite uses" },
+            { name: "Duct Tape", bulk: 1, category: "tools", description: "100m roll" },
             { name: "Utility Ties", bulk: 1, category: "tools", description: "100 zip ties" },
             { name: "Rope", bulk: 1, category: "tools", description: "100m nylon rope" },
             { name: "Binoculars", bulk: 1, category: "tools", description: "Magnified vision device" },
             { name: "Grapple Gun", bulk: 1, category: "tools", description: "Launches grappling hook" },
-            { name: "Fabrication Kit", bulk: 10, category: "tools", description: "Heavy equipment fabrication" },
+            { name: "Fabrication Kit", bulk: 10, category: "tools", description: "Heavy equipment craftman tools" },
             { name: "Thieves' Tools", bulk: 1, category: "tools", description: "Lockpicking and bypass equipment" },
             
             // Communications
-            { name: "Radio Relay", bulk: 2, category: "communications", description: "Extends radio range" },
-            { name: "Communications Balloon", bulk: 2, category: "communications", description: "High-altitude radio relay" },
-            { name: "G.D.O.", bulk: 1, category: "communications", description: "Gate Defense Override device" },
+            { name: "Radio Relay", bulk: 2, category: "communications", description: "Extends radio range up to 20km radius" },
+            { name: "Communications Balloon", bulk: 2, category: "communications", description: "Launchable baloon that extends radio range to 500km" },
+            { name: "G.D.O.", bulk: 1, category: "communications", description: "Garage Door Opener, send your ID for verification at the SGC" },
             { name: "Translator", bulk: 1, category: "communications", description: "Universal language database" },
             { name: "Personal Computer", bulk: 1, category: "communications", description: "Laptop or tablet device" },
             { name: "Signal Beacon", bulk: 1, category: "communications", description: "Emergency locator beacon" },
-            { name: "Radio Station", bulk: 40, category: "communications", description: "Long-range communications setup" },
+            { name: "Radio Station", bulk: 40, category: "communications", description: "Long-range communications setup(100km)" },
             
             // Survival Gear
-            { name: "MRE Pack", bulk: 1, category: "survival", description: "Food - 5 days of rations" },
+            { name: "MRE Pack(5x)", bulk: 1, category: "survival", description: "Food - 1 day of rations" },
             { name: "SCUBA Gear", bulk: 2, category: "survival", description: "Underwater breathing apparatus" },
-            { name: "Parachute", bulk: 3, category: "survival", description: "Emergency descent device" },
-            { name: "Space Suit", bulk: 5, category: "survival", description: "Vacuum protection" },
+            { name: "Parachute", bulk: 3, category: "survival", description: "Backpack with canopy" },
+            { name: "Space Suit", bulk: 5, category: "survival", description: "Suit for space travel" },
             { name: "Inflatable Boat", bulk: 2, category: "survival", description: "Portable water transport" },
             { name: "Solar Recharging Station", bulk: 2, category: "survival", description: "Renewable power source" },
             { name: "Generator", bulk: 3, category: "survival", description: "Portable power generator" },
-            { name: "Canteen", bulk: 1, category: "survival", description: "Water storage container" },
+            { name: "Water Purifier", bulk: 1, category: "survival", description: "Water filter container" },
             { name: "Sleeping Bag", bulk: 2, category: "survival", description: "Insulated bedroll" },
             
             // Alien Tech
             { name: "Ma'tok Staff", bulk: 2, category: "alien", description: "Jaffa energy weapon" },
             { name: "Zat'nik'tel", bulk: 1, category: "alien", description: "Goa'uld stun weapon" },
-            { name: "Clak Blade (Unas)", bulk: 1, category: "alien", description: "Retractable wrist blade" },
-            { name: "Elio'so Paste", bulk: 1, category: "alien", description: "Aturen healing compound, 5 doses" },
-            { name: "Monitoring Implant", bulk: 0, category: "alien", description: "Tollan medical monitor" },
+            { name: "Clak Blade (Unas)", bulk: 1, category: "alien", description: "Blade that is used by Unas and deals 1d8 d" },
+            { name: "Unas Necklace", bulk: 0, category: "alien", description: "Bone chocker that blocks the area a Goa'uld would enter the host" },
+            { name: "Elio'so Paste(10x)", bulk: 1, category: "alien", description: "Emergency food, 10 uses can heal HP and attribute damage" },
+            { name: "Ud’Wat Incense(10x)", bulk: 1, category: "alien", description: "Setate and enter the dreamscape" },
+            { name: "Monitoring Implant", bulk: 0, category: "alien", description: "Tollan medical monitoring implant" },
             { name: "Naquadah Generator", bulk: 3, category: "alien", description: "Advanced power source" },
+            { name: "Phase Device", bulk: 1, category: "alien", description: "Tollan wrist-worn device to phase out of sync" },
             { name: "Tok'ra Tunneling Crystals", bulk: 1, category: "alien", description: "Creates underground passages" },
             { name: "Healing Device", bulk: 1, category: "alien", description: "Goa'uld healing technology" }
         ];
@@ -975,10 +982,6 @@
                                 <span class="armor-stat-label">Bulk:</span>
                                 <span class="armor-stat-value">${armor.bulkBase}+Str</span>
                             </div>
-                            <div class="armor-stat">
-                                <span class="armor-stat-label">Str Req:</span>
-                                <span class="armor-stat-value">${armor.strReq || 'None'}</span>
-                            </div>
                         </div>
                         ${armor.strReq && !meetsRequirement ? '<div class="requirement-warning">⚠️ Requires STR ' + armor.strReq + '+</div>' : ''}
                     </div>
@@ -1012,10 +1015,6 @@
                         <div class="armor-stat">
                             <span class="armor-stat-label">Bulk Red.:</span>
                             <span class="armor-stat-value">-${shield.bulkReduction}</span>
-                        </div>
-                        <div class="armor-stat">
-                            <span class="armor-stat-label">Click to:</span>
-                            <span class="armor-stat-value">${selectedShield && selectedShield.name === shield.name ? 'Remove' : 'Equip'}</span>
                         </div>
                     </div>
                 </div>
