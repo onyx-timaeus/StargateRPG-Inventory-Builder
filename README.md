@@ -23,7 +23,7 @@ A comprehensive web-based inventory management system for Phoenix Base operation
 ## 📖 How to Use
 
 ### 1. Configure Your Character
-- Set your **Strength Score** (3-20) to determine carrying capacity
+- Set your **Strength Score** to determine carrying capacity
 - Select your **Base Kit** level (1-Prep as long as you GM doesn't say otherwise)
 
 ### 2. Choose Armor
