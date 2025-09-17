@@ -2,7 +2,7 @@
 
 A comprehensive web-based inventory management system for Phoenix Base operations, designed for tabletop RPG equipment tracking and character loadout planning.
 
-[Link to page](https://onyx-timaeus.github.io/StargateRPG-Inventory-Builder/)
+[Link to Inventory Builder](https://onyx-timaeus.github.io/StargateRPG-Inventory-Builder/)
 ## ✨ Features
 - **Strength-based bulk capacity system** - Your carrying capacity adjusts based on strength score and armor choice
 - **Base kit configurations** - Four pre-defined loadout tiers (1-Prep through 4-Prep) with escalating equipment
