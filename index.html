@@ -57,6 +57,20 @@
             justify-content: center;
         }
 
+        .header-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: white;
+        }
+
+        .icon {
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            vertical-align: middle;
+            fill: currentColor;
+        }
+
         .header p {
             color: #bfdbfe;
             margin-top: 8px;
@@ -609,7 +623,13 @@
         <div class="main-card">
             <div class="header">
                 <h1>
-                    <div class="header-icon">🎯</div>
+                    <div class="header-icon">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <circle cx="12" cy="12" r="6"/>
+                            <circle cx="12" cy="12" r="2"/>
+                        </svg>
+                    </div>
                     Phoenix Base Arsenal
                 </h1>
                 <p>Equipment Requisition & Inventory Management System</p>
@@ -833,7 +853,7 @@
             { name: "Clak Blade (Unas)", bulk: 1, category: "alien", description: "Shortblade worn on wrist bracer that will can grapple the target and deal 1d8 damage(Unas deal extra claw damage)" },
             { name: "Unas Necklace", bulk: 0, category: "alien", description: "Bone chocker that blocks the area a Goa'uld would enter the host" },
             { name: "Elio'so Paste(10x)", bulk: 1, category: "alien", description: "Emergency food, 10 uses can heal HP and attribute damage" },
-            { name: "Ud’Wat Incense(10x)", bulk: 1, category: "alien", description: "Setate and enter the dreamscape" },
+            { name: "Ud'Wat Incense(10x)", bulk: 1, category: "alien", description: "Setate and enter the dreamscape" },
             { name: "Monitoring Implant", bulk: 0, category: "alien", description: "Tollan medical monitoring implant" },
             { name: "Naquadah Generator", bulk: 3, category: "alien", description: "Advanced power source" },
             { name: "Phase Device", bulk: 1, category: "alien", description: "Tollan wrist-worn device to phase out of sync" },
